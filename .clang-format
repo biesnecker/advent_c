@@ -1,0 +1,22 @@
+BasedOnStyle: LLVM
+IndentWidth: 4
+ColumnLimit: 80
+DerivePointerAlignment: false
+PointerAlignment: Left
+BinPackArguments: false
+BinPackParameters: false
+AllowAllParametersOfDeclarationOnNextLine: false
+AllowShortLoopsOnASingleLine: false
+AllowShortFunctionsOnASingleLine: false
+IncludeBlocks: Regroup
+IncludeCategories:
+  - Regex: '"_?_?W.*\.h(pp)?"'
+    Priority: 0
+  - Regex: '^<.*/.*\.h(pp)?>'
+    Priority: 3
+  - Regex: '^<.*\.h(pp)?>'
+    Priority: 1
+  - Regex: '^<.*'
+    Priority: 2
+  - Regex: '.*'
+    Priority: 13
