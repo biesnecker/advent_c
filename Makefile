@@ -17,6 +17,7 @@ OBJS = \
 	src/2015/day_eleven.o \
 	src/2015/day_twelve.o \
 	src/2015/day_thirteen.o \
+	src/2015/day_fourteen.o \
 	src/utils/fnv.o \
 	src/utils/md5.o \
 	src/utils/minmax.o \
