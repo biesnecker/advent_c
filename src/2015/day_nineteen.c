@@ -224,10 +224,9 @@ FUNCTION_DEFN_FOR_YDS(2015, nineteen, b) {
             leftBuf[1] = curr->snd;
             leftLen += 1;
         }
-        char* left = strdup(leftBuf);
         for (int j = 0; j < curr->alts; ++j) {
             rpair p = (rpair){
-                .left = left,
+                .left = strdup(leftBuf),
                 .right = curr->alternatives[j].text,
                 .leftLen = leftLen,
                 .rightLen = curr->alternatives[j].len,
@@ -235,6 +234,8 @@ FUNCTION_DEFN_FOR_YDS(2015, nineteen, b) {
             vectorPush(&pairs, &p);
         }
     }
+
+    vectorFinalize(&reps);
 
     rng r;
     rngInit(&r);
@@ -280,4 +281,11 @@ FUNCTION_DEFN_FOR_YDS(2015, nineteen, b) {
         free(m);
     }
     printf("Maybe %d?\n", minReplacements);
+
+    VECTOR_FOR_EACH(&pairs, p_) {
+        rpair* p = p_;
+        free(p->left);
+        free(p->right);
+    }
+    vectorFinalize(&pairs);
 }
