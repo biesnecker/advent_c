@@ -1,6 +1,6 @@
 CC=gcc
 ERRFLAGS=-Werror -Wall -Wextra -Wstrict-prototypes
-CFLAGS=-std=c17 -O2 -march=native $(ERRFLAGS)
+CFLAGS=-std=c17 -O2 -g -march=native $(ERRFLAGS)
 BINARY_NAME=advent_c
 
 OBJS = \
@@ -22,17 +22,21 @@ OBJS = \
 	src/2015/day_sixteen.o \
 	src/2015/day_seventeen.o \
 	src/2015/day_eighteen.o \
-	src/utils/fnv.o \
+	src/2015/day_nineteen.o \
 	src/utils/md5.o \
 	src/utils/minmax.o \
+	src/utils/rand.o \
 	src/utils/strings.o \
+	src/utils/vector.c \
+	src/utils/xxhash.o \
 	src/main.o
 
 HEADERS = \
-	src/utils/fnv.h \
 	src/utils/md5.h \
 	src/utils/minmax.h \
-	src/utils/string.h \
+	src/utils/rand.h \
+	src/utils/strings.h \
+	src/utils/vector.h \
 	src/macros.h
 
 %.o: %.c $(HEADERS)

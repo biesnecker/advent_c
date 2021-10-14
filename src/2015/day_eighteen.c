@@ -9,7 +9,7 @@
 static const int BOARD_SIZE = 100;
 static const int TURNS = 100;
 
-void parseInput(FILE* fp, uint8_t board[BOARD_SIZE][BOARD_SIZE]) {
+static void parseInput(FILE* fp, uint8_t board[BOARD_SIZE][BOARD_SIZE]) {
     int line = 0;
     char buffer[200];
     while (fgets(buffer, sizeof(buffer), fp) != NULL) {
@@ -27,10 +27,8 @@ void parseInput(FILE* fp, uint8_t board[BOARD_SIZE][BOARD_SIZE]) {
     }
 }
 
-bool isOnNextStep(uint8_t board[BOARD_SIZE][BOARD_SIZE],
-                  int x,
-                  int y,
-                  bool stuck) {
+static bool
+isOnNextStep(uint8_t board[BOARD_SIZE][BOARD_SIZE], int x, int y, bool stuck) {
     if (stuck && ((x == 0 && y == 0) || (x == 0 && y == BOARD_SIZE - 1) ||
                   (x == BOARD_SIZE - 1 && y == 0) ||
                   (x == BOARD_SIZE - 1 && y == BOARD_SIZE - 1))) {
