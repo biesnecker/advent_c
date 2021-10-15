@@ -23,6 +23,8 @@ OBJS = \
 	src/2015/day_seventeen.o \
 	src/2015/day_eighteen.o \
 	src/2015/day_nineteen.o \
+	src/2015/day_twenty.o \
+	src/2015/day_twentyone.o \
 	src/utils/md5.o \
 	src/utils/minmax.o \
 	src/utils/rand.o \

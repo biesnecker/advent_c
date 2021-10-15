@@ -6,11 +6,31 @@
 #include "rand.h"
 
 void vectorInit(vector* v, size_t capacity, size_t elemSize) {
+    assert(capacity > 0 && elemSize > 0);
     v->capacity = capacity;
     v->elemSize = elemSize;
     v->len = 0;
     v->data = malloc(capacity * elemSize);
     assert(v->data != NULL);
+}
+
+void vectorInitWithData(vector* v,
+                        size_t capacity,
+                        size_t elemSize,
+                        const void* existingData,
+                        size_t existingDataElems) {
+    assert(capacity > 0 && elemSize > 0 && existingDataElems > 0 &&
+           capacity >= existingDataElems);
+    v->capacity = capacity;
+    v->elemSize = elemSize;
+    v->len = existingDataElems;
+    v->data = malloc(capacity * elemSize);
+    assert(v->data != NULL);
+    memcpy(v->data, existingData, elemSize * existingDataElems);
+}
+
+void vectorTruncate(vector* v) {
+    v->len = 0;
 }
 
 void vectorFinalize(vector* v) {

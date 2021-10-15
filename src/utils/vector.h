@@ -1,5 +1,6 @@
 #pragma once
 
+#include <stdbool.h>
 #include <stdlib.h>
 
 #include "../macros.h"
@@ -13,6 +14,14 @@ typedef struct vector {
 } vector;
 
 void vectorInit(vector* v, size_t capacity, size_t elemSize);
+
+void vectorInitWithData(vector* v,
+                        size_t capacity,
+                        size_t elemSize,
+                        const void* existingData,
+                        size_t existingDataElems);
+
+void vectorTruncate(vector* v);
 
 void vectorFinalize(vector* v);
 

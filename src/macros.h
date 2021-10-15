@@ -3,6 +3,10 @@
 
 #define UNUSED_ARG(x) ((void)(x))
 
+#define ARRAY_LEN(arr)                                                         \
+    ((sizeof(arr) / sizeof(0 [arr])) /                                         \
+     ((size_t)(!(sizeof(arr) % sizeof(0 [arr])))))
+
 #define _TP(t1, t2) t1##t2
 #define TOKEN_PASTE(t1, t2) _TP(t1, t2)
 #define TOKEN_PASTE_(t1, t2) TOKEN_PASTE(TOKEN_PASTE(t1, _), t2)
