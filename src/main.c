@@ -14,7 +14,7 @@ typedef struct _solution {
     {                                                                          \
         .puzzle_id = STRINGIFY(YDS(year_name, day_name, side)),                \
         .solution = &FUNCTION_NAME_FOR_YDS(year_name, day_name, side),         \
-        "input/" STRINGIFY(YD(year_name, day_name)) "_input.txt",              \
+        "./input/" STRINGIFY(YD(year_name, day_name)) "_input.txt",            \
     }
 
 FUNCTION_DECL_FOR_YDS(2015, one, a);
@@ -59,6 +59,8 @@ FUNCTION_DEFN_FOR_YDS(2015, twenty, a);
 FUNCTION_DEFN_FOR_YDS(2015, twenty, b);
 FUNCTION_DEFN_FOR_YDS(2015, twentyone, a);
 FUNCTION_DEFN_FOR_YDS(2015, twentyone, b);
+FUNCTION_DEFN_FOR_YDS(2015, twentytwo, a);
+FUNCTION_DEFN_FOR_YDS(2015, twentytwo, b);
 
 static solution solutions[] = {
     SOLUTION_FOR_YDS(2015, one, a),       SOLUTION_FOR_YDS(2015, one, b),
@@ -81,7 +83,8 @@ static solution solutions[] = {
     SOLUTION_FOR_YDS(2015, eighteen, a),  SOLUTION_FOR_YDS(2015, eighteen, b),
     SOLUTION_FOR_YDS(2015, nineteen, a),  SOLUTION_FOR_YDS(2015, nineteen, b),
     SOLUTION_FOR_YDS(2015, twenty, a),    SOLUTION_FOR_YDS(2015, twenty, b),
-    SOLUTION_FOR_YDS(2015, twentyone, a), SOLUTION_FOR_YDS(2015, twentyone, b)};
+    SOLUTION_FOR_YDS(2015, twentyone, a), SOLUTION_FOR_YDS(2015, twentyone, b),
+    SOLUTION_FOR_YDS(2015, twentytwo, a), SOLUTION_FOR_YDS(2015, twentytwo, b)};
 
 static int n_solutions = sizeof(solutions) / sizeof(solutions[0]);
 
