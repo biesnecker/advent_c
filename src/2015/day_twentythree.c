@@ -1,7 +1,4 @@
-#include <assert.h>
-#include <string.h>
-
-#include "../macros.h"
+#include "../common.h"
 #include "../utils/vector.h"
 
 typedef enum opcode {

@@ -1,11 +1,4 @@
-#include <assert.h>
-#include <limits.h>
-#include <stdbool.h>
-#include <stdint.h>
-#include <stdio.h>
-#include <string.h>
-
-#include "../macros.h"
+#include "../common.h"
 #include "../utils/minmax.h"
 
 static const int MAX_CITIES = 8;

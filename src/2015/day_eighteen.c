@@ -1,9 +1,4 @@
-#include <assert.h>
-#include <stdint.h>
-#include <stdio.h>
-#include <string.h>
-
-#include "../macros.h"
+#include "../common.h"
 #include "../utils/strings.h"
 
 static const int BOARD_SIZE = 100;

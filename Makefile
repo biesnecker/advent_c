@@ -19,6 +19,7 @@ HEADERS = \
 	src/utils/rand.h \
 	src/utils/strings.h \
 	src/utils/vector.h \
+	src/common.h \
 	src/macros.h
 
 %.o: %.c $(HEADERS)

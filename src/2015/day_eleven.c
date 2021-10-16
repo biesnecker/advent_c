@@ -1,8 +1,4 @@
-#include <assert.h>
-#include <stdbool.h>
-#include <string.h>
-
-#include "../macros.h"
+#include "../common.h"
 
 static inline void stepPassword(char* pw, int pwlen) {
     int currentIdx = pwlen - 1;

@@ -1,8 +1,4 @@
-#include <limits.h>
-#include <stdbool.h>
-#include <stdint.h>
-
-#include "../macros.h"
+#include "../common.h"
 #include "../utils/minmax.h"
 
 static uint16_t fromCoords(int x, int y) {

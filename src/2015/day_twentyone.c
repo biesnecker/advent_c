@@ -1,9 +1,4 @@
-#include <assert.h>
-#include <limits.h>
-#include <stdbool.h>
-#include <string.h>
-
-#include "../macros.h"
+#include "../common.h"
 #include "../utils/minmax.h"
 
 typedef struct player {

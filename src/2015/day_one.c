@@ -1,6 +1,4 @@
-#include <stdbool.h>
-
-#include "../macros.h"
+#include "../common.h"
 
 FUNCTION_DEFN_FOR_YDS(2015, one, a) {
     char paren;

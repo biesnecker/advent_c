@@ -1,9 +1,4 @@
-#include <assert.h>
-#include <limits.h>
-#include <stdint.h>
-#include <stdio.h>
-
-#include "../macros.h"
+#include "../common.h"
 
 #define NBUCKETS 20
 #define GOAL 150

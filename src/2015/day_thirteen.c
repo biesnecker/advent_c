@@ -1,12 +1,4 @@
-#include <assert.h>
-#include <ctype.h>
-#include <limits.h>
-#include <stdbool.h>
-#include <stdint.h>
-#include <stdlib.h>
-#include <string.h>
-
-#include "../macros.h"
+#include "../common.h"
 #include "../utils/minmax.h"
 
 static const int N_PEOPLE = 9;

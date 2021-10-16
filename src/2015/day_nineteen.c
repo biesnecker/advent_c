@@ -1,10 +1,4 @@
-#include <assert.h>
-#include <ctype.h>
-#include <limits.h>
-#include <stdbool.h>
-#include <string.h>
-
-#include "../macros.h"
+#include "../common.h"
 #include "../utils/minmax.h"
 #include "../utils/rand.h"
 #include "../utils/strings.h"

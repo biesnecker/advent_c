@@ -1,9 +1,4 @@
-#include <assert.h>
-#include <stdbool.h>
-#include <stdint.h>
-#include <string.h>
-
-#include "../macros.h"
+#include "../common.h"
 
 static void parseInput(FILE* fp, uint32_t* row, uint32_t* col) {
     char buffer[125];

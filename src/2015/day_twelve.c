@@ -1,9 +1,4 @@
-#include <assert.h>
-#include <ctype.h>
-#include <stdbool.h>
-#include <stdio.h>
-
-#include "../macros.h"
+#include "../common.h"
 #include "../utils/strings.h"
 
 FUNCTION_DEFN_FOR_YDS(2015, twelve, a) {

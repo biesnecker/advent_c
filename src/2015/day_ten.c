@@ -1,7 +1,4 @@
-#include <assert.h>
-#include <stdlib.h>
-
-#include "../macros.h"
+#include "../common.h"
 #include "../utils/strings.h"
 
 typedef struct node {

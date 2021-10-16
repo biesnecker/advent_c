@@ -1,6 +1,4 @@
-#include <stdbool.h>
-
-#include "../macros.h"
+#include "../common.h"
 #include "../utils/minmax.h"
 
 typedef struct racer {

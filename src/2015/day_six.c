@@ -1,8 +1,4 @@
-#include <stdbool.h>
-#include <stdio.h>
-#include <string.h>
-
-#include "../macros.h"
+#include "../common.h"
 #include "../utils/minmax.h"
 #include "../utils/strings.h"
 

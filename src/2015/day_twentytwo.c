@@ -1,10 +1,4 @@
-#include <assert.h>
-#include <limits.h>
-#include <stdbool.h>
-#include <stdint.h>
-#include <string.h>
-
-#include "../macros.h"
+#include "../common.h"
 
 static void readInput(FILE* fp, int* hitpoints, int* damage) {
     assert(fscanf(fp, "Hit Points: %d\n", hitpoints) == 1);

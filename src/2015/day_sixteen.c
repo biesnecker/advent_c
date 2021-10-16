@@ -1,8 +1,4 @@
-#include <assert.h>
-#include <stdbool.h>
-#include <stdio.h>
-
-#include "../macros.h"
+#include "../common.h"
 
 static int getAttributeId(const char* attribute) {
     switch (attribute[0]) {

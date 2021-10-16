@@ -1,7 +1,4 @@
-#include <stdbool.h>
-#include <string.h>
-
-#include "../macros.h"
+#include "../common.h"
 
 static bool isVowel(char c) {
     return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';

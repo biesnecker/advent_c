@@ -1,8 +1,6 @@
-#include <assert.h>
 #include <math.h>
-#include <stdint.h>
 
-#include "../macros.h"
+#include "../common.h"
 #include "../utils/vector.h"
 
 uint32_t firstThousandPrimes[] = {

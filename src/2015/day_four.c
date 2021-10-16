@@ -1,8 +1,4 @@
-#include <stdbool.h>
-#include <stdio.h>
-#include <string.h>
-
-#include "../macros.h"
+#include "../common.h"
 #include "../utils/md5.h"
 
 FUNCTION_DEFN_FOR_YDS(2015, four, a) {

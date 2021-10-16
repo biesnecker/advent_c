@@ -1,6 +1,4 @@
-#include <stdio.h>
-
-#include "../macros.h"
+#include "../common.h"
 
 static int min(int a, int b) {
     return a < b ? a : b;

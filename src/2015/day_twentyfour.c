@@ -1,8 +1,4 @@
-#include <assert.h>
-#include <limits.h>
-#include <stdint.h>
-
-#include "../macros.h"
+#include "../common.h"
 #include "../utils/vector.h"
 
 static void readInput(FILE* fp, vector* nums, uint32_t* sum) {
