@@ -13,10 +13,12 @@ typedef struct _solution {
 FUNCTION_DECL_FOR_YEAR(2015);
 FUNCTION_DECL_FOR_YD(2016, one);
 FUNCTION_DECL_FOR_YD(2016, two);
+FUNCTION_DECL_FOR_YD(2016, three);
 
 static solution solutions[] = {SOLUTIONS_FOR_YEAR(2015),
                                SOLUTIONS_FOR_YD(2016, one),
-                               SOLUTIONS_FOR_YD(2016, two)};
+                               SOLUTIONS_FOR_YD(2016, two),
+                               SOLUTIONS_FOR_YD(2016, three)};
 
 static int n_solutions = sizeof(solutions) / sizeof(solutions[0]);
 

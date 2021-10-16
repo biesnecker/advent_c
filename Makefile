@@ -13,14 +13,7 @@ OBJS = \
 	src/utils/xxhash.o \
 	src/main.o
 
-HEADERS = \
-	src/utils/md5.h \
-	src/utils/minmax.h \
-	src/utils/rand.h \
-	src/utils/strings.h \
-	src/utils/vector.h \
-	src/common.h \
-	src/macros.h
+HEADERS = $(wildcard src/*.h)
 
 %.o: %.c $(HEADERS)
 	$(CC) -c -o $@ $< $(CFLAGS)
