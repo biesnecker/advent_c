@@ -63,6 +63,8 @@ FUNCTION_DEFN_FOR_YDS(2015, twentytwo, a);
 FUNCTION_DEFN_FOR_YDS(2015, twentytwo, b);
 FUNCTION_DEFN_FOR_YDS(2015, twentythree, a);
 FUNCTION_DEFN_FOR_YDS(2015, twentythree, b);
+FUNCTION_DEFN_FOR_YDS(2015, twentyfour, a);
+FUNCTION_DEFN_FOR_YDS(2015, twentyfour, b);
 
 static solution solutions[] = {SOLUTION_FOR_YDS(2015, one, a),
                                SOLUTION_FOR_YDS(2015, one, b),
@@ -109,7 +111,9 @@ static solution solutions[] = {SOLUTION_FOR_YDS(2015, one, a),
                                SOLUTION_FOR_YDS(2015, twentytwo, a),
                                SOLUTION_FOR_YDS(2015, twentytwo, b),
                                SOLUTION_FOR_YDS(2015, twentythree, a),
-                               SOLUTION_FOR_YDS(2015, twentythree, b)};
+                               SOLUTION_FOR_YDS(2015, twentythree, b),
+                               SOLUTION_FOR_YDS(2015, twentyfour, a),
+                               SOLUTION_FOR_YDS(2015, twentyfour, b)};
 
 static int n_solutions = sizeof(solutions) / sizeof(solutions[0]);
 

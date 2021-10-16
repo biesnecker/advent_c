@@ -27,6 +27,8 @@ OBJS = \
 	src/2015/day_twentyone.o \
 	src/2015/day_twentytwo.o \
 	src/2015/day_twentythree.o \
+	src/2015/day_twentyfour.o \
+	src/utils/bitset.o \
 	src/utils/md5.o \
 	src/utils/minmax.o \
 	src/utils/rand.o \
