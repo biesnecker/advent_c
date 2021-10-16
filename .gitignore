@@ -1,5 +1,6 @@
 advent_c
 .DS_Store
 *.o
+*.a
 .vscode
 *.dSYM
