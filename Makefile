@@ -4,31 +4,6 @@ CFLAGS=-std=c17 -O2 -g -march=native $(ERRFLAGS)
 BINARY_NAME=advent_c
 
 OBJS = \
-	src/2015/day_one.o \
-	src/2015/day_two.o \
-	src/2015/day_three.o \
-	src/2015/day_four.o \
-	src/2015/day_five.o \
-	src/2015/day_six.o \
-	src/2015/day_seven.o \
-	src/2015/day_eight.o \
-	src/2015/day_nine.o \
-	src/2015/day_ten.o \
-	src/2015/day_eleven.o \
-	src/2015/day_twelve.o \
-	src/2015/day_thirteen.o \
-	src/2015/day_fourteen.o \
-	src/2015/day_fifteen.o \
-	src/2015/day_sixteen.o \
-	src/2015/day_seventeen.o \
-	src/2015/day_eighteen.o \
-	src/2015/day_nineteen.o \
-	src/2015/day_twenty.o \
-	src/2015/day_twentyone.o \
-	src/2015/day_twentytwo.o \
-	src/2015/day_twentythree.o \
-	src/2015/day_twentyfour.o \
-	src/2015/day_twentyfive.o \
 	src/utils/bitset.o \
 	src/utils/md5.o \
 	src/utils/minmax.o \
@@ -49,9 +24,14 @@ HEADERS = \
 %.o: %.c $(HEADERS)
 	$(CC) -c -o $@ $< $(CFLAGS)
 
-$(BINARY_NAME): $(OBJS)
+$(BINARY_NAME): $(OBJS) lib2015.a lib2016.a
 	$(CC) -o $@ $^ $(CFLAGS)
 
+lib2015.a: $(patsubst %.c, %.o, $(wildcard src/2015/*.c))
+	ar -rv $@ $^
+
+lib2016.a: $(patsubst %.c, %.o, $(wildcard src/2016/*.c))
+	ar -rv $@ $^
 
 .PHONY: clean
 clean:

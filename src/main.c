@@ -10,114 +10,11 @@ typedef struct _solution {
     const char* input_filename;
 } solution;
 
-#define SOLUTION_FOR_YDS(year_name, day_name, side)                            \
-    {                                                                          \
-        .puzzle_id = STRINGIFY(YDS(year_name, day_name, side)),                \
-        .solution = &FUNCTION_NAME_FOR_YDS(year_name, day_name, side),         \
-        "./input/" STRINGIFY(YD(year_name, day_name)) "_input.txt",            \
-    }
+FUNCTION_DECL_FOR_YEAR(2015);
+FUNCTION_DECL_FOR_YD(2016, one);
 
-FUNCTION_DECL_FOR_YDS(2015, one, a);
-FUNCTION_DECL_FOR_YDS(2015, one, b);
-FUNCTION_DEFN_FOR_YDS(2015, two, a);
-FUNCTION_DEFN_FOR_YDS(2015, two, b);
-FUNCTION_DEFN_FOR_YDS(2015, three, a);
-FUNCTION_DEFN_FOR_YDS(2015, three, b);
-FUNCTION_DEFN_FOR_YDS(2015, four, a);
-FUNCTION_DEFN_FOR_YDS(2015, four, b);
-FUNCTION_DEFN_FOR_YDS(2015, five, a);
-FUNCTION_DEFN_FOR_YDS(2015, five, b);
-FUNCTION_DEFN_FOR_YDS(2015, six, a);
-FUNCTION_DEFN_FOR_YDS(2015, six, b);
-FUNCTION_DEFN_FOR_YDS(2015, seven, a);
-FUNCTION_DEFN_FOR_YDS(2015, seven, b);
-FUNCTION_DEFN_FOR_YDS(2015, eight, a);
-FUNCTION_DEFN_FOR_YDS(2015, eight, b);
-FUNCTION_DEFN_FOR_YDS(2015, nine, a);
-FUNCTION_DEFN_FOR_YDS(2015, nine, b);
-FUNCTION_DEFN_FOR_YDS(2015, ten, a);
-FUNCTION_DEFN_FOR_YDS(2015, ten, b);
-FUNCTION_DEFN_FOR_YDS(2015, eleven, a);
-FUNCTION_DEFN_FOR_YDS(2015, eleven, b);
-FUNCTION_DEFN_FOR_YDS(2015, twelve, a);
-FUNCTION_DEFN_FOR_YDS(2015, twelve, b);
-FUNCTION_DEFN_FOR_YDS(2015, thirteen, a);
-FUNCTION_DEFN_FOR_YDS(2015, thirteen, b);
-FUNCTION_DEFN_FOR_YDS(2015, fourteen, a);
-FUNCTION_DEFN_FOR_YDS(2015, fourteen, b);
-FUNCTION_DEFN_FOR_YDS(2015, fifteen, a);
-FUNCTION_DEFN_FOR_YDS(2015, fifteen, b);
-FUNCTION_DEFN_FOR_YDS(2015, sixteen, a);
-FUNCTION_DEFN_FOR_YDS(2015, sixteen, b);
-FUNCTION_DEFN_FOR_YDS(2015, seventeen, a);
-FUNCTION_DEFN_FOR_YDS(2015, seventeen, b);
-FUNCTION_DEFN_FOR_YDS(2015, eighteen, a);
-FUNCTION_DEFN_FOR_YDS(2015, eighteen, b);
-FUNCTION_DEFN_FOR_YDS(2015, nineteen, a);
-FUNCTION_DEFN_FOR_YDS(2015, nineteen, b);
-FUNCTION_DEFN_FOR_YDS(2015, twenty, a);
-FUNCTION_DEFN_FOR_YDS(2015, twenty, b);
-FUNCTION_DEFN_FOR_YDS(2015, twentyone, a);
-FUNCTION_DEFN_FOR_YDS(2015, twentyone, b);
-FUNCTION_DEFN_FOR_YDS(2015, twentytwo, a);
-FUNCTION_DEFN_FOR_YDS(2015, twentytwo, b);
-FUNCTION_DEFN_FOR_YDS(2015, twentythree, a);
-FUNCTION_DEFN_FOR_YDS(2015, twentythree, b);
-FUNCTION_DEFN_FOR_YDS(2015, twentyfour, a);
-FUNCTION_DEFN_FOR_YDS(2015, twentyfour, b);
-FUNCTION_DEFN_FOR_YDS(2015, twentyfive, a);
-FUNCTION_DEFN_FOR_YDS(2015, twentyfive, b);
-
-static solution solutions[] = {SOLUTION_FOR_YDS(2015, one, a),
-                               SOLUTION_FOR_YDS(2015, one, b),
-                               SOLUTION_FOR_YDS(2015, two, a),
-                               SOLUTION_FOR_YDS(2015, two, b),
-                               SOLUTION_FOR_YDS(2015, three, a),
-                               SOLUTION_FOR_YDS(2015, three, b),
-                               SOLUTION_FOR_YDS(2015, four, a),
-                               SOLUTION_FOR_YDS(2015, four, b),
-                               SOLUTION_FOR_YDS(2015, five, a),
-                               SOLUTION_FOR_YDS(2015, five, b),
-                               SOLUTION_FOR_YDS(2015, six, a),
-                               SOLUTION_FOR_YDS(2015, six, b),
-                               SOLUTION_FOR_YDS(2015, seven, a),
-                               SOLUTION_FOR_YDS(2015, seven, b),
-                               SOLUTION_FOR_YDS(2015, eight, a),
-                               SOLUTION_FOR_YDS(2015, eight, b),
-                               SOLUTION_FOR_YDS(2015, nine, a),
-                               SOLUTION_FOR_YDS(2015, nine, b),
-                               SOLUTION_FOR_YDS(2015, ten, a),
-                               SOLUTION_FOR_YDS(2015, ten, b),
-                               SOLUTION_FOR_YDS(2015, eleven, a),
-                               SOLUTION_FOR_YDS(2015, eleven, b),
-                               SOLUTION_FOR_YDS(2015, twelve, a),
-                               SOLUTION_FOR_YDS(2015, twelve, b),
-                               SOLUTION_FOR_YDS(2015, thirteen, a),
-                               SOLUTION_FOR_YDS(2015, thirteen, b),
-                               SOLUTION_FOR_YDS(2015, fourteen, a),
-                               SOLUTION_FOR_YDS(2015, fourteen, b),
-                               SOLUTION_FOR_YDS(2015, fifteen, a),
-                               SOLUTION_FOR_YDS(2015, fifteen, b),
-                               SOLUTION_FOR_YDS(2015, sixteen, a),
-                               SOLUTION_FOR_YDS(2015, sixteen, b),
-                               SOLUTION_FOR_YDS(2015, seventeen, a),
-                               SOLUTION_FOR_YDS(2015, seventeen, b),
-                               SOLUTION_FOR_YDS(2015, eighteen, a),
-                               SOLUTION_FOR_YDS(2015, eighteen, b),
-                               SOLUTION_FOR_YDS(2015, nineteen, a),
-                               SOLUTION_FOR_YDS(2015, nineteen, b),
-                               SOLUTION_FOR_YDS(2015, twenty, a),
-                               SOLUTION_FOR_YDS(2015, twenty, b),
-                               SOLUTION_FOR_YDS(2015, twentyone, a),
-                               SOLUTION_FOR_YDS(2015, twentyone, b),
-                               SOLUTION_FOR_YDS(2015, twentytwo, a),
-                               SOLUTION_FOR_YDS(2015, twentytwo, b),
-                               SOLUTION_FOR_YDS(2015, twentythree, a),
-                               SOLUTION_FOR_YDS(2015, twentythree, b),
-                               SOLUTION_FOR_YDS(2015, twentyfour, a),
-                               SOLUTION_FOR_YDS(2015, twentyfour, b),
-                               SOLUTION_FOR_YDS(2015, twentyfive, a),
-                               SOLUTION_FOR_YDS(2015, twentyfive, b)};
+static solution solutions[] = {SOLUTIONS_FOR_YEAR(2015),
+                               SOLUTIONS_FOR_YD(2016, one)};
 
 static int n_solutions = sizeof(solutions) / sizeof(solutions[0]);
 
