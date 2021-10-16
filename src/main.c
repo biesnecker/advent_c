@@ -14,13 +14,15 @@ FUNCTION_DECL_FOR_YEAR(2015);
 FUNCTION_DECL_FOR_YD(2016, one);
 FUNCTION_DECL_FOR_YD(2016, two);
 FUNCTION_DECL_FOR_YD(2016, three);
+FUNCTION_DECL_FOR_YD(2016, four);
 
 static solution solutions[] = {SOLUTIONS_FOR_YEAR(2015),
                                SOLUTIONS_FOR_YD(2016, one),
                                SOLUTIONS_FOR_YD(2016, two),
-                               SOLUTIONS_FOR_YD(2016, three)};
+                               SOLUTIONS_FOR_YD(2016, three),
+                               SOLUTIONS_FOR_YD(2016, four)};
 
-static int n_solutions = sizeof(solutions) / sizeof(solutions[0]);
+static int n_solutions = ARRAY_LEN(solutions);
 
 void printUsage(const char* programName) {
     fprintf(stderr,
