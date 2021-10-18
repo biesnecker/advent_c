@@ -1,6 +1,6 @@
 CC=gcc
 ERRFLAGS=-Werror -Wall -Wextra -Wstrict-prototypes
-CFLAGS=-std=c17 -O2 -g -march=native $(ERRFLAGS)
+CFLAGS=-std=c17 -O2 -march=native $(ERRFLAGS)
 BINARY_NAME=advent_c
 
 OBJS = \
