@@ -106,7 +106,7 @@ static void fillPrimes(vector* primes, int numToGenerate) {
     while (numToGenerate > 0) {
         uint32_t toCheck = ceil(sqrt(candidate));
         bool hasFactor = false;
-        VECTOR_FOR_EACH(primes, p_) {
+        VECTOR_FOREACH_TYPED(primes, uint32_t, p_) {
             uint32_t p = *(uint32_t*)p_;
             if (p > toCheck) {
                 break;
@@ -178,8 +178,8 @@ FUNCTION_DEFN_FOR_YDS(2015, twenty, a) {
         found = 1;
         next += 180;
         factorNumber(&primes, &factors, next);
-        VECTOR_FOR_EACH(&factors, f) {
-            found *= sumFactor((pfactor*)f);
+        VECTOR_FOREACH_TYPED(&factors, pfactor, f) {
+            found *= sumFactor(f);
         }
         vectorTruncate(&factors);
         found *= 10;

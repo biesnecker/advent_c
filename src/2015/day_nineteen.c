@@ -166,8 +166,7 @@ FUNCTION_DEFN_FOR_YDS(2015, nineteen, a) {
 
     printf("%d\n", solution);
 
-    VECTOR_FOR_EACH(&reps, x) {
-        replacement* r = x;
+    VECTOR_FOREACH_TYPED(&reps, replacement, r) {
         for (int j = 0; j < r->alts; ++j) {
             free(r->alternatives[j].text);
         }
@@ -210,7 +209,7 @@ FUNCTION_DEFN_FOR_YDS(2015, nineteen, b) {
 
     vector pairs;
     vectorInit(&pairs, MAX_PAIRS, sizeof(rpair));
-    VECTOR_FOR_EACH(&reps, elem) {
+    VECTOR_FOREACH_TYPED(&reps, replacement, elem) {
         replacement* curr = elem;
         char leftBuf[3] = {curr->fst, 0, 0};
         size_t leftLen = 1;
@@ -245,9 +244,7 @@ FUNCTION_DEFN_FOR_YDS(2015, nineteen, b) {
         bool foundE = false;
         do {
             replacementsMadeOld = replacementsMade;
-            VECTOR_FOR_EACH(&pairs, p_) {
-                rpair* p = p_;
-
+            VECTOR_FOREACH_TYPED(&pairs, rpair, p) {
                 // Look for the replacement string.
                 char* found = strstr(m, p->right);
                 if (found != NULL) {
@@ -276,8 +273,7 @@ FUNCTION_DEFN_FOR_YDS(2015, nineteen, b) {
     }
     printf("Maybe %d?\n", minReplacements);
 
-    VECTOR_FOR_EACH(&pairs, p_) {
-        rpair* p = p_;
+    VECTOR_FOREACH_TYPED(&pairs, rpair, p) {
         free(p->left);
         free(p->right);
     }

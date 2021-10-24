@@ -135,3 +135,14 @@ uint64_t xxhashDigest(const xxhash* h) {
     result ^= result >> 32;
     return result;
 }
+
+uint64_t xxhashFromString(const char* s) {
+    return xxhashFromData(s, strlen(s));
+}
+
+uint64_t xxhashFromData(const void* s, size_t len) {
+    xxhash hsh;
+    xxhashInit(&hsh, 0);
+    xxhashAppend(&hsh, s, len);
+    return xxhashDigest(&hsh);
+}

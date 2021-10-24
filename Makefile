@@ -1,10 +1,12 @@
 CC=gcc
 ERRFLAGS=-Werror -Wall -Wextra -Wstrict-prototypes
-CFLAGS=-std=c17 -O2 -march=native $(ERRFLAGS)
+CFLAGS=-std=c17 -O3 -march=native $(ERRFLAGS)
 BINARY_NAME=advent_c
 
 OBJS = \
 	src/utils/bitset.o \
+	src/utils/hashset.o \
+	src/utils/heap.o \
 	src/utils/md5.o \
 	src/utils/minmax.o \
 	src/utils/rand.o \

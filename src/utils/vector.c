@@ -41,7 +41,15 @@ void vectorFinalize(vector* v) {
     v->data = NULL;
 }
 
-uint8_t* vectorDataPtr(vector* v) {
+size_t vectorSize(const vector* v) {
+    return v->len;
+}
+
+size_t vectorCapacity(const vector* v) {
+    return v->capacity;
+}
+
+uint8_t* vectorDataPtr(const vector* v) {
     return (uint8_t*)v->data;
 }
 
@@ -61,17 +69,41 @@ void vectorPush(vector* v, const void* elem) {
     ++v->len;
 }
 
-void* vectorAt(vector* v, size_t idx) {
+void* vectorAt(const vector* v, size_t idx) {
     assert(idx >= 0 && idx < v->len);
     return vectorDataPtr(v) + (idx * v->elemSize);
 }
 
-void* vectorBack(vector* v) {
+void* vectorBack(const vector* v) {
     return vectorAt(v, v->len - 1);
+}
+
+void vectorPopBack(vector* v) {
+    assert(v->len > 0);
+    --v->len;
 }
 
 void vectorSort(vector* v, int (*cmp)(const void*, const void*)) {
     qsort(v->data, v->len, v->elemSize, cmp);
+}
+
+void vectorInsertionSort(vector* v, int (*cmp)(const void*, const void*)) {
+    if (v->len < 2) {
+        return;
+    }
+
+    uint8_t b[v->elemSize];
+    void* buffer = &b;
+
+    for (size_t i = 1; i < v->len; ++i) {
+        size_t j = i;
+        while (j > 0 && cmp(VECTOR_AT(v, j), VECTOR_AT(v, j - 1)) < 0) {
+            memcpy(buffer, VECTOR_AT(v, j), v->elemSize);
+            memcpy(VECTOR_AT(v, j), VECTOR_AT(v, j - 1), v->elemSize);
+            memcpy(VECTOR_AT(v, j - 1), buffer, v->elemSize);
+            --j;
+        }
+    }
 }
 
 void vectorShuffle(vector* v, rng* r) {
@@ -91,7 +123,7 @@ void vectorShuffle(vector* v, rng* r) {
     free(buffer);
 }
 
-void* vectorBinarySearch(vector* v,
+void* vectorBinarySearch(const vector* v,
                          const void* key,
                          int (*cmp)(const void*, const void*)) {
     if (v->len == 0) {

@@ -20,3 +20,7 @@ void xxhashInit(xxhash* h, uint64_t seed);
 void xxhashAppend(xxhash* h, const void* input, size_t len);
 
 uint64_t xxhashDigest(const xxhash* h);
+
+uint64_t xxhashFromString(const char* s);
+
+uint64_t xxhashFromData(const void* s, size_t len);
