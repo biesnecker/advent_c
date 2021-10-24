@@ -22,6 +22,9 @@ FUNCTION_DECL_FOR_YD(2016, eight);
 FUNCTION_DECL_FOR_YD(2016, nine);
 FUNCTION_DECL_FOR_YD(2016, ten);
 FUNCTION_DECL_FOR_YD(2016, eleven);
+FUNCTION_DECL_FOR_YD(2016, twelve);
+FUNCTION_DECL_FOR_YD(2016, thirteen);
+FUNCTION_DECL_FOR_YD(2016, fourteen);
 
 static solution solutions[] = {SOLUTIONS_FOR_YEAR(2015),
                                SOLUTIONS_FOR_YD(2016, one),
@@ -34,7 +37,10 @@ static solution solutions[] = {SOLUTIONS_FOR_YEAR(2015),
                                SOLUTIONS_FOR_YD(2016, eight),
                                SOLUTIONS_FOR_YD(2016, nine),
                                SOLUTIONS_FOR_YD(2016, ten),
-                               SOLUTIONS_FOR_YD(2016, eleven)};
+                               SOLUTIONS_FOR_YD(2016, eleven),
+                               SOLUTIONS_FOR_YD(2016, twelve),
+                               SOLUTIONS_FOR_YD(2016, thirteen),
+                               SOLUTIONS_FOR_YD(2016, fourteen)};
 
 static int n_solutions = ARRAY_LEN(solutions);
 

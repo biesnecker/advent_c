@@ -71,5 +71,6 @@ void* vectorBinarySearch(const vector* v,
 #define VECTOR_CAPACITY(v) ((v)->capacity)
 #define VECTOR_ELEM_SIZE(v) ((v)->elemSize)
 #define VECTOR_DATA_PTR(v) ((uint8_t*)((v)->data))
-#define VECTOR_AT(v, idx) (VECTOR_DATA_PTR(v) + (VECTOR_ELEM_SIZE(v) * (idx)))
+#define VECTOR_AT(v, idx)                                                      \
+    (void*)(VECTOR_DATA_PTR(v) + (VECTOR_ELEM_SIZE(v) * (idx)))
 #define VECTOR_BACK(v) VECTOR_AT(v, VECTOR_SIZE(v) - 1)

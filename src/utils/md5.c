@@ -1,6 +1,7 @@
 #include "md5.h"
 
 #include <stdbool.h>
+#include <stdio.h>
 #include <string.h>
 
 static inline void _md5ProcessBlock(const uint8_t* block, uint32_t* state) {
@@ -114,7 +115,7 @@ static inline void _md5ProcessBlock(const uint8_t* block, uint32_t* state) {
     state[3] = 0U + state[3] + d;
 }
 
-void md5(const uint8_t* input, size_t len, uint8_t* output) {
+void md5(const void* input, size_t len, uint8_t* output) {
 
     uint32_t* state = (uint32_t*)output;
 
@@ -155,4 +156,39 @@ void md5(const uint8_t* input, size_t len, uint8_t* output) {
         _md5ProcessBlock(buffer, state);
         _md5ProcessBlock(buffer + 64, state);
     }
+}
+
+static const char hexDigits[16] = {'0',
+                                   '1',
+                                   '2',
+                                   '3',
+                                   '4',
+                                   '5',
+                                   '6',
+                                   '7',
+                                   '8',
+                                   '9',
+                                   'a',
+                                   'b',
+                                   'c',
+                                   'd',
+                                   'e',
+                                   'f'};
+
+void md5HexToBuffer(const void* input, size_t len, char* buffer) {
+    uint8_t output[16] = {0};
+    md5(input, len, output);
+    for (int i = 0; i < 16; ++i) {
+        uint8_t hi = (output[i] >> 4) & 0xf;
+        uint8_t lo = output[i] & 0xf;
+        buffer[i * 2] = hexDigits[hi];
+        buffer[i * 2 + 1] = hexDigits[lo];
+    }
+    buffer[32] = '\0';
+}
+
+char* md5Hex(const void* input, size_t len) {
+    char* res = calloc(32 + 1, sizeof(char));
+    md5HexToBuffer(input, len, res);
+    return res;
 }
