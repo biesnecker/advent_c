@@ -10,16 +10,21 @@ typedef struct vector {
     size_t capacity;
     size_t len;
     size_t elemSize;
+    void (*free)(void*);
     void* data;
 } vector;
 
-void vectorInit(vector* v, size_t capacity, size_t elemSize);
+void vectorInit(vector* v,
+                size_t capacity,
+                size_t elemSize,
+                void (*free)(void*));
 
 void vectorInitWithData(vector* v,
                         size_t capacity,
                         size_t elemSize,
                         const void* existingData,
-                        size_t existingDataElems);
+                        size_t existingDataElems,
+                        void (*free)(void*));
 
 void vectorTruncate(vector* v);
 

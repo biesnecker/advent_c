@@ -61,7 +61,7 @@ FUNCTION_DEFN_FOR_YDS(2016, thirteen, a) {
     location target = {.x = 31, .y = 39};
 
     heap pqueue;
-    heapInit(&pqueue, 1 << 10, sizeof(pos), comparePos);
+    heapInit(&pqueue, 1 << 10, sizeof(pos), comparePos, NULL);
 
     int shortest = INT_MAX;
 
@@ -132,7 +132,7 @@ FUNCTION_DEFN_FOR_YDS(2016, thirteen, b) {
     int salt = readInput(fp);
 
     heap pqueue;
-    heapInit(&pqueue, 1 << 10, sizeof(pos), comparePos);
+    heapInit(&pqueue, 1 << 10, sizeof(pos), comparePos, NULL);
 
     hashset seen;
     hashsetInit(

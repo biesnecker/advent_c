@@ -49,7 +49,7 @@ static int findSolution(vector* v) {
 
 FUNCTION_DEFN_FOR_YDS(2016, fifteen, a) {
     vector v;
-    vectorInit(&v, 8, sizeof(disc));
+    vectorInit(&v, 8, sizeof(disc), NULL);
     readInput(fp, inputHandler, &v);
     printf("%d\n", findSolution(&v));
     vectorFinalize(&v);
@@ -57,7 +57,7 @@ FUNCTION_DEFN_FOR_YDS(2016, fifteen, a) {
 
 FUNCTION_DEFN_FOR_YDS(2016, fifteen, b) {
     vector v;
-    vectorInit(&v, 8, sizeof(disc));
+    vectorInit(&v, 8, sizeof(disc), NULL);
     readInput(fp, inputHandler, &v);
     int id = vectorSize(&v) + 1;
     vectorPush(&v, &(disc){.starting = 0, .positions = 11, .id = id});

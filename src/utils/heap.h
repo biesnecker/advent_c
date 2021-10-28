@@ -10,7 +10,8 @@ typedef struct heap {
 void heapInit(heap* h,
               size_t capacity,
               size_t elemSize,
-              int (*cmp)(const void*, const void*));
+              int (*cmp)(const void*, const void*),
+              void (*free)(void*));
 
 void heapFinalize(heap* h);
 

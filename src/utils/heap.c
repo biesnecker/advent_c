@@ -8,8 +8,9 @@
 void heapInit(heap* h,
               size_t capacity,
               size_t elemSize,
-              int (*cmp)(const void*, const void*)) {
-    vectorInit(&h->v, capacity, elemSize);
+              int (*cmp)(const void*, const void*),
+              void (*free)(void*)) {
+    vectorInit(&h->v, capacity, elemSize, free);
     h->cmp = cmp;
 }
 

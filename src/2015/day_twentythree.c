@@ -157,7 +157,7 @@ static void runInterpreter(vector* prog, uint32_t* a, uint32_t* b) {
 
 FUNCTION_DEFN_FOR_YDS(2015, twentythree, a) {
     vector prog;
-    vectorInit(&prog, 20, sizeof(instr));
+    vectorInit(&prog, 20, sizeof(instr), NULL);
 
     readInput(fp, &prog);
 
@@ -173,7 +173,7 @@ FUNCTION_DEFN_FOR_YDS(2015, twentythree, a) {
 
 FUNCTION_DEFN_FOR_YDS(2015, twentythree, b) {
     vector prog;
-    vectorInit(&prog, 20, sizeof(instr));
+    vectorInit(&prog, 20, sizeof(instr), NULL);
 
     readInput(fp, &prog);
 

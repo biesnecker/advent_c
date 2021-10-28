@@ -185,7 +185,7 @@ static void runSimulation(state starting, int itemTypes) {
     size_t shortest = SIZE_MAX;
 
     heap pqueue;
-    heapInit(&pqueue, 1U << 10, sizeof(position), comparePosition);
+    heapInit(&pqueue, 1U << 10, sizeof(position), comparePosition, NULL);
 
     hashset seen;
     hashsetInit(&seen, 1U << 10, sizeof(state), compareState, hashState, NULL);
@@ -290,17 +290,19 @@ static void runSimulation(state starting, int itemTypes) {
 
 FUNCTION_DEFN_FOR_YDS(2016, eleven, a) {
     inputState is = {0};
-    vectorInit(&is.names, 10, sizeof(char*));
+    vectorInit(&is.names, 10, sizeof(char*), free);
     readInput(fp, handlerA, &is);
 
     runSimulation(is.starting, (int)vectorSize(&is.names));
+    vectorFinalize(&is.names);
 }
 
 FUNCTION_DEFN_FOR_YDS(2016, eleven, b) {
     inputState is = {0};
-    vectorInit(&is.names, 10, sizeof(char*));
+    vectorInit(&is.names, 10, sizeof(char*), free);
     readInput(fp, handlerA, &is);
     is.starting.data |= 0x6060;
 
     runSimulation(is.starting, (int)vectorSize(&is.names) + 2);
+    vectorFinalize(&is.names);
 }

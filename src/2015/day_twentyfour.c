@@ -52,7 +52,7 @@ static void combinations(vector* nums,
 FUNCTION_DEFN_FOR_YDS(2015, twentyfour, a) {
     uint32_t sum = 0;
     vector nums;
-    vectorInit(&nums, 30, sizeof(uint32_t));
+    vectorInit(&nums, 30, sizeof(uint32_t), NULL);
     readInput(fp, &nums, &sum);
     assert(nums.len <= 64);
 
@@ -72,7 +72,7 @@ FUNCTION_DEFN_FOR_YDS(2015, twentyfour, a) {
 FUNCTION_DEFN_FOR_YDS(2015, twentyfour, b) {
     uint32_t sum = 0;
     vector nums;
-    vectorInit(&nums, 30, sizeof(uint32_t));
+    vectorInit(&nums, 30, sizeof(uint32_t), NULL);
     readInput(fp, &nums, &sum);
     assert(nums.len <= 64);
 

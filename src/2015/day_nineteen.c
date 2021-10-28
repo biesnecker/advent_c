@@ -109,7 +109,7 @@ static void parseInput(FILE* fp, vector* replacements, char** molecule) {
 
 FUNCTION_DEFN_FOR_YDS(2015, nineteen, a) {
     vector reps;
-    vectorInit(&reps, MAX_REPLACEMENTS, sizeof(replacement));
+    vectorInit(&reps, MAX_REPLACEMENTS, sizeof(replacement), NULL);
     char* molecule = NULL;
     parseInput(fp, &reps, &molecule);
 
@@ -118,7 +118,7 @@ FUNCTION_DEFN_FOR_YDS(2015, nineteen, a) {
     char* stop = molecule + mlen;
 
     vector hashes;
-    vectorInit(&hashes, MAX_HASHES, sizeof(uint64_t));
+    vectorInit(&hashes, MAX_HASHES, sizeof(uint64_t), NULL);
 
     while (molecule < stop) {
         if (isupper(*molecule)) {
@@ -203,12 +203,12 @@ static void removeSpaces(char* str) {
 
 FUNCTION_DEFN_FOR_YDS(2015, nineteen, b) {
     vector reps;
-    vectorInit(&reps, MAX_REPLACEMENTS, sizeof(replacement));
+    vectorInit(&reps, MAX_REPLACEMENTS, sizeof(replacement), NULL);
     char* molecule = NULL;
     parseInput(fp, &reps, &molecule);
 
     vector pairs;
-    vectorInit(&pairs, MAX_PAIRS, sizeof(rpair));
+    vectorInit(&pairs, MAX_PAIRS, sizeof(rpair), NULL);
     VECTOR_FOREACH_TYPED(&reps, replacement, elem) {
         replacement* curr = elem;
         char leftBuf[3] = {curr->fst, 0, 0};

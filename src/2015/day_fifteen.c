@@ -48,16 +48,18 @@ static int scoreCookie(ingredient* ingredients, int i, int j, int k, int m) {
 FUNCTION_DEFN_FOR_YDS(2015, fifteen, a) {
     ingredient ingredients[4] = {0};
     int maxScore = 0;
+    int iters = 0;
     parseInput(fp, ingredients);
     for (int i = 100; i >= 0; --i) {
         for (int j = 100 - i; j >= 0; --j) {
             for (int k = 100 - (i + j); k >= 0; --k) {
                 int m = 100 - (i + j + k);
+                ++iters;
                 maxScore = max(maxScore, scoreCookie(ingredients, i, j, k, m));
             }
         }
     }
-    printf("%d\n", maxScore);
+    printf("%d %d\n", iters, maxScore);
 }
 
 FUNCTION_DEFN_FOR_YDS(2015, fifteen, b) {

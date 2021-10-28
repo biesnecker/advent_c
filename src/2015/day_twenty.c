@@ -165,14 +165,15 @@ FUNCTION_DEFN_FOR_YDS(2015, twenty, a) {
                        ARRAY_LEN(firstThousandPrimes) * 2,
                        sizeof(uint32_t),
                        firstThousandPrimes,
-                       ARRAY_LEN(firstThousandPrimes));
+                       ARRAY_LEN(firstThousandPrimes),
+                       NULL);
 
     uint32_t target = getInput(fp);
     uint32_t found = 0;
     uint32_t next = 0;
 
     vector factors;
-    vectorInit(&factors, 100, sizeof(pfactor));
+    vectorInit(&factors, 100, sizeof(pfactor), NULL);
 
     do {
         found = 1;

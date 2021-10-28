@@ -146,7 +146,7 @@ static void inputHandler(const instruction* i, void* userData) {
 
 static void run(FILE* fp, emu* e) {
     vector instructions;
-    vectorInit(&instructions, 32, sizeof(instruction));
+    vectorInit(&instructions, 32, sizeof(instruction), NULL);
 
     readInput(fp, inputHandler, &instructions);
     simulate(&instructions, e);

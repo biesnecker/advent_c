@@ -5,20 +5,25 @@
 
 #include "rand.h"
 
-void vectorInit(vector* v, size_t capacity, size_t elemSize) {
+void vectorInit(vector* v,
+                size_t capacity,
+                size_t elemSize,
+                void (*free)(void*)) {
     assert(capacity > 0 && elemSize > 0);
     v->capacity = capacity;
     v->elemSize = elemSize;
     v->len = 0;
     v->data = malloc(capacity * elemSize);
     assert(v->data != NULL);
+    v->free = free;
 }
 
 void vectorInitWithData(vector* v,
                         size_t capacity,
                         size_t elemSize,
                         const void* existingData,
-                        size_t existingDataElems) {
+                        size_t existingDataElems,
+                        void (*free)(void*)) {
     assert(capacity > 0 && elemSize > 0 && existingDataElems > 0 &&
            capacity >= existingDataElems);
     v->capacity = capacity;
@@ -27,13 +32,24 @@ void vectorInitWithData(vector* v,
     v->data = malloc(capacity * elemSize);
     assert(v->data != NULL);
     memcpy(v->data, existingData, elemSize * existingDataElems);
+    v->free = free;
+}
+
+static void _freeAllElements(vector* v) {
+    if (v->free != NULL) {
+        VECTOR_FOREACH(v, elem) {
+            v->free(elem);
+        }
+    }
 }
 
 void vectorTruncate(vector* v) {
+    _freeAllElements(v);
     v->len = 0;
 }
 
 void vectorFinalize(vector* v) {
+    _freeAllElements(v);
     v->capacity = 0;
     v->elemSize = 0;
     v->len = 0;
@@ -80,6 +96,9 @@ void* vectorBack(const vector* v) {
 
 void vectorPopBack(vector* v) {
     assert(v->len > 0);
+    if (v->free != NULL) {
+        v->free(VECTOR_AT(v, v->len - 1));
+    }
     --v->len;
 }
 
