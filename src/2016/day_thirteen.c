@@ -1,5 +1,3 @@
-#include <x86intrin.h>
-
 #include "../common.h"
 #include "../utils/hashset.h"
 #include "../utils/heap.h"
@@ -53,7 +51,7 @@ static bool isWall(const location* loc, int salt) {
     int v = (loc->x * loc->x) + (3 * loc->x) + (2 * loc->x * loc->y) +
             (loc->y + loc->y * loc->y);
     v += salt;
-    return __popcntd(v) % 2 == 1;
+    return __builtin_popcount(v) % 2 == 1;
 }
 
 FUNCTION_DEFN_FOR_YDS(2016, thirteen, a) {
