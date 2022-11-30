@@ -21,13 +21,16 @@ HEADERS = $(wildcard src/*.h)
 %.o: %.c $(HEADERS)
 	$(CC) -c -o $@ $< $(CFLAGS)
 
-$(BINARY_NAME): $(OBJS) lib2015.a lib2016.a
+$(BINARY_NAME): $(OBJS) lib2015.a lib2016.a lib2021.a
 	$(CC) -o $@ $^ $(CFLAGS)
 
 lib2015.a: $(patsubst %.c, %.o, $(wildcard src/2015/*.c))
 	ar -rv $@ $^
 
 lib2016.a: $(patsubst %.c, %.o, $(wildcard src/2016/*.c))
+	ar -rv $@ $^
+
+lib2021.a: $(patsubst %.c, %.o, $(wildcard src/2021/*.c))
 	ar -rv $@ $^
 
 .PHONY: clean

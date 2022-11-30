@@ -10,7 +10,10 @@ typedef struct _solution {
     const char* input_filename;
 } solution;
 
+// 2015
 FUNCTION_DECL_FOR_YEAR(2015);
+
+// 2016
 FUNCTION_DECL_FOR_YD(2016, one);
 FUNCTION_DECL_FOR_YD(2016, two);
 FUNCTION_DECL_FOR_YD(2016, three);
@@ -29,24 +32,34 @@ FUNCTION_DECL_FOR_YD(2016, fifteen);
 FUNCTION_DECL_FOR_YD(2016, sixteen);
 FUNCTION_DECL_FOR_YD(2016, seventeen);
 
-static solution solutions[] = {SOLUTIONS_FOR_YEAR(2015),
-                               SOLUTIONS_FOR_YD(2016, one),
-                               SOLUTIONS_FOR_YD(2016, two),
-                               SOLUTIONS_FOR_YD(2016, three),
-                               SOLUTIONS_FOR_YD(2016, four),
-                               SOLUTIONS_FOR_YD(2016, five),
-                               SOLUTIONS_FOR_YD(2016, six),
-                               SOLUTIONS_FOR_YD(2016, seven),
-                               SOLUTIONS_FOR_YD(2016, eight),
-                               SOLUTIONS_FOR_YD(2016, nine),
-                               SOLUTIONS_FOR_YD(2016, ten),
-                               SOLUTIONS_FOR_YD(2016, eleven),
-                               SOLUTIONS_FOR_YD(2016, twelve),
-                               SOLUTIONS_FOR_YD(2016, thirteen),
-                               SOLUTIONS_FOR_YD(2016, fourteen),
-                               SOLUTIONS_FOR_YD(2016, fifteen),
-                               SOLUTIONS_FOR_YD(2016, sixteen),
-                               SOLUTIONS_FOR_YD(2016, seventeen)};
+// 2021
+
+FUNCTION_DECL_FOR_YD(2021, one);
+
+static solution solutions[] = {
+    // 2015
+    SOLUTIONS_FOR_YEAR(2015),
+
+    // 2016
+    SOLUTIONS_FOR_YD(2016, one),
+    SOLUTIONS_FOR_YD(2016, two),
+    SOLUTIONS_FOR_YD(2016, three),
+    SOLUTIONS_FOR_YD(2016, four),
+    SOLUTIONS_FOR_YD(2016, five),
+    SOLUTIONS_FOR_YD(2016, six),
+    SOLUTIONS_FOR_YD(2016, seven),
+    SOLUTIONS_FOR_YD(2016, eight),
+    SOLUTIONS_FOR_YD(2016, nine),
+    SOLUTIONS_FOR_YD(2016, ten),
+    SOLUTIONS_FOR_YD(2016, eleven),
+    SOLUTIONS_FOR_YD(2016, twelve),
+    SOLUTIONS_FOR_YD(2016, thirteen),
+    SOLUTIONS_FOR_YD(2016, fourteen),
+    SOLUTIONS_FOR_YD(2016, fifteen),
+    SOLUTIONS_FOR_YD(2016, sixteen),
+
+    // 2021
+    SOLUTIONS_FOR_YD(2021, one)};
 
 static int n_solutions = ARRAY_LEN(solutions);
 
