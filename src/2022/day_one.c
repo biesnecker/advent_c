@@ -1,5 +1,4 @@
 #include "../common.h"
-#include "../utils/cmp.h"
 
 static void readInput(FILE* fp, void (*handler)(int, void*), void* userData) {
     char buffer[10];
