@@ -16,7 +16,7 @@ static void readInput(FILE* fp, void (*handler)(int, void*), void* userData) {
     }
 }
 
-void handlerA(int n, void* userData) {
+static void handlerA(int n, void* userData) {
     int* max = (int*)userData;
 
     if (n > *max) {
@@ -24,7 +24,7 @@ void handlerA(int n, void* userData) {
     }
 }
 
-void handlerB(int n, void* userData) {
+static void handlerB(int n, void* userData) {
     int* top = (int*)userData;
     for (int idx = 0; idx < 3; ++idx) {
         if (n > top[idx]) {
