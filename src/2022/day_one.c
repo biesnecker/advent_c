@@ -1,8 +1,6 @@
 #include "../common.h"
 #include "../utils/cmp.h"
 
-#define MAX_INPUT_LEN 300
-
 static void readInput(FILE* fp, void (*handler)(int, void*), void* userData) {
     char buffer[10];
     int sum = 0;
@@ -29,7 +27,7 @@ void handlerA(int n, void* userData) {
 
 void handlerB(int n, void* userData) {
     int* top = (int*)userData;
-    for (int idx = 0; idx < 3; idx++) {
+    for (int idx = 0; idx < 3; ++idx) {
         if (n > top[idx]) {
             int tmp = top[idx];
             top[idx] = n;
