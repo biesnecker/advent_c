@@ -1,28 +1,25 @@
 CC=gcc
 ERRFLAGS=-Werror -Wall -Wextra -Wstrict-prototypes -Wno-unused-function
-CFLAGS=-std=c17 -O2 $(ERRFLAGS)
+CFLAGS=-std=c17 -O2
 BINARY_NAME=advent_c
 
-OBJS = \
-	src/utils/bitset.o \
-	src/utils/hashset.o \
-	src/utils/heap.o \
-	src/utils/md5.o \
-	src/utils/minmax.o \
-	src/utils/rand.o \
-	src/utils/ringbuffer.o \
-	src/utils/strings.o \
-	src/utils/vector.c \
-	src/utils/xxhash.o \
-	src/main.o
+MAIN = src/main.o
 
-HEADERS = $(wildcard src/*.h)
+%.o: %.c
+	$(CC) -c -o $@ $< $(CFLAGS) $(ERRFLAGS)
 
-%.o: %.c $(HEADERS)
-	$(CC) -c -o $@ $< $(CFLAGS)
+LIBS = \
+	utils.a \
+	lib2015.a \
+	lib2016.a \
+	lib2021.a \
+	lib2022.a
 
-$(BINARY_NAME): $(OBJS) lib2015.a lib2016.a lib2021.a
-	$(CC) -o $@ $^ $(CFLAGS)
+$(BINARY_NAME): $(MAIN) $(LIBS)
+	$(CC) -o $@ $^ $(CFLAGS) $(ERRFLAGS)
+
+utils.a: $(patsubst %.c, %.o, $(wildcard src/utils/*.c))
+	ar -rv $@ $^
 
 lib2015.a: $(patsubst %.c, %.o, $(wildcard src/2015/*.c))
 	ar -rv $@ $^
@@ -31,6 +28,9 @@ lib2016.a: $(patsubst %.c, %.o, $(wildcard src/2016/*.c))
 	ar -rv $@ $^
 
 lib2021.a: $(patsubst %.c, %.o, $(wildcard src/2021/*.c))
+	ar -rv $@ $^
+
+lib2022.a: $(patsubst %.c, %.o, $(wildcard src/2022/*.c))
 	ar -rv $@ $^
 
 .PHONY: clean
