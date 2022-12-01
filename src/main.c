@@ -36,6 +36,7 @@ FUNCTION_DECL_FOR_YD(2016, seventeen);
 
 FUNCTION_DECL_FOR_YD(2021, one);
 FUNCTION_DECL_FOR_YD(2021, two);
+FUNCTION_DECL_FOR_YD(2021, three);
 
 static solution solutions[] = {
     // 2015
@@ -61,9 +62,10 @@ static solution solutions[] = {
 
     // 2021
     SOLUTIONS_FOR_YD(2021, one),
-    SOLUTIONS_FOR_YD(2021, two)};
+    SOLUTIONS_FOR_YD(2021, two),
+    SOLUTIONS_FOR_YD(2021, three)};
 
-static int n_solutions = ARRAY_LEN(solutions);
+static const int n_solutions = ARRAY_LEN(solutions);
 
 void printUsage(const char* programName) {
     fprintf(stderr,
