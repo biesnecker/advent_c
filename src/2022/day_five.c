@@ -144,7 +144,8 @@ static void handler(const cmd* c, void* userData) {
                 stack_push(&b->stacks[c->move.to], crate);
             }
         } else {
-            char buffer[64] = {0};
+            char buffer[STACK_MAX] = {0};
+            assert(c->move.count <= STACK_MAX);
             int buffer_idx = 0;
             for (int i = 0; i < c->move.count; ++i) {
                 buffer[buffer_idx++] = stack_pop(&b->stacks[c->move.from]);
