@@ -23,12 +23,12 @@ typedef struct {
     };
 } input;
 
-typedef bool (*registerHandlerFn)(const instruction*, int*);
+typedef bool (*instructionHandlerFn)(const instruction*, int*);
 
 typedef struct {
     const char* name;
-    registerHandlerFn handler;
-} registerHandler;
+    instructionHandlerFn handler;
+} instructionHandler;
 
 typedef struct {
     uint16_t handlerPossibilities[16];
@@ -222,7 +222,7 @@ static bool eqrr(const instruction* i, int* reg) {
     return true;
 }
 
-static const registerHandler registerHandlers[16] = {
+static const instructionHandler instructionHandlers[16] = {
     {.name = "addr", .handler = &addr},
     {.name = "addi", .handler = &addi},
     {.name = "mulr", .handler = &mulr},
@@ -243,7 +243,7 @@ static const registerHandler registerHandlers[16] = {
 static bool testHandlerOnSample(const sample* s, int handlerIdx) {
     int regState[4] = {0};
     memcpy(regState, &s->begin_state, sizeof(int) * 4);
-    if (!registerHandlers[handlerIdx].handler(&s->i, regState)) {
+    if (!instructionHandlers[handlerIdx].handler(&s->i, regState)) {
         return false;
     }
     return memcmp(regState, &s->end_state, sizeof(int) * 4) == 0;
@@ -311,9 +311,9 @@ static void handlerB(const input* in, void* userData) {
         if (!state->hasResolved) {
             finalResolve(state);
         }
-        registerHandlerFn r =
-            registerHandlers[__builtin_ctz(
-                                 state->handlerPossibilities[in->i.op])]
+        instructionHandlerFn r =
+            instructionHandlers[__builtin_ctz(
+                                    state->handlerPossibilities[in->i.op])]
                 .handler;
         assert(r(&in->i, state->registers));
     }
@@ -351,6 +351,6 @@ FUNCTION_DEFN_FOR_YDS(2018, sixteen, debug) {
     for (int i = 0; i < 16; i++) {
         assert(__builtin_popcount(s.handlerPossibilities[i]) == 1);
         int rhi = __builtin_ctz(s.handlerPossibilities[i]);
-        printf("%d: %s\n", i, registerHandlers[rhi].name);
+        printf("%d: %s\n", i, instructionHandlers[rhi].name);
     }
 }
