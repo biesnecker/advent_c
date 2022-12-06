@@ -32,6 +32,10 @@ FUNCTION_DECL_FOR_YD(2016, fifteen);
 FUNCTION_DECL_FOR_YD(2016, sixteen);
 FUNCTION_DECL_FOR_YD(2016, seventeen);
 
+// 2018
+FUNCTION_DECL_FOR_YD(2018, sixteen);
+FUNCTION_DECL_FOR_YDS(2018, sixteen, debug); // needed for day 19
+
 // 2021
 
 FUNCTION_DECL_FOR_YD(2021, one);
@@ -67,6 +71,10 @@ static solution solutions[] = {
     SOLUTIONS_FOR_YD(2016, fourteen),
     SOLUTIONS_FOR_YD(2016, fifteen),
     SOLUTIONS_FOR_YD(2016, sixteen),
+
+    // 2018
+    SOLUTIONS_FOR_YD(2018, sixteen),
+    SOLUTION_FOR_YDS(2018, sixteen, debug), // needed for day 19
 
     // 2021
     SOLUTIONS_FOR_YD(2021, one),

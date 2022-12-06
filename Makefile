@@ -12,6 +12,7 @@ LIBS = \
 	utils.a \
 	lib2015.a \
 	lib2016.a \
+	lib2018.a \
 	lib2021.a \
 	lib2022.a
 
@@ -25,6 +26,9 @@ lib2015.a: $(patsubst %.c, %.o, $(wildcard src/2015/*.c))
 	ar -rv $@ $^
 
 lib2016.a: $(patsubst %.c, %.o, $(wildcard src/2016/*.c))
+	ar -rv $@ $^
+
+lib2018.a: $(patsubst %.c, %.o, $(wildcard src/2018/*.c))
 	ar -rv $@ $^
 
 lib2021.a: $(patsubst %.c, %.o, $(wildcard src/2021/*.c))
