@@ -149,4 +149,5 @@ FUNCTION_DEFN_FOR_YDS(2022, seven, b) {
     int smallestFound = INT_MAX;
     findSmallestToDelete(s.root, mustFreeSpace, &smallestFound);
     printf("%d\n", smallestFound);
+    freeDirectory(s.root);
 }
