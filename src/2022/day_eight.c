@@ -1,4 +1,5 @@
 #include "../common.h"
+#include "../utils/stack.h"
 
 #define ROWS 99
 #define COLS 99
@@ -10,33 +11,11 @@ typedef struct {
     int height;
 } stack_elem;
 
-typedef struct {
-    stack_elem elems[MAX_STACK];
-    int tos;
-} stack;
+STACK_DEFINE(stack, stack_elem, MAX_STACK);
 
 typedef struct {
     int heights[N_HEIGHTS];
 } last_seen_map;
-
-static stack_elem stack_peek(const stack* s) {
-    assert(s->tos > 0);
-    return s->elems[s->tos - 1];
-}
-
-static void stack_push(stack* s, stack_elem elem) {
-    assert(s->tos < MAX_STACK);
-    s->elems[s->tos++] = elem;
-}
-
-static stack_elem stack_pop(stack* s) {
-    assert(s->tos > 0);
-    return s->elems[(s->tos--) - 1];
-}
-
-static bool stack_empty(const stack* s) {
-    return s->tos == 0;
-}
 
 static int index_from_coords(int x, int y) {
     return (y * COLS) + x;

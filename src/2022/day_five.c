@@ -1,4 +1,5 @@
 #include "../common.h"
+#include "../utils/stack.h"
 
 #define STACK_MAX 64
 #define N_STACKS 9
@@ -28,10 +29,7 @@ typedef struct {
     };
 } cmd;
 
-typedef struct {
-    char crates[STACK_MAX];
-    int tos;
-} stack;
+STACK_DEFINE(stack, char, STACK_MAX);
 
 typedef struct {
     stack stacks[N_STACKS];
@@ -41,36 +39,6 @@ typedef struct {
     boat b;
     int move_type;
 } state;
-
-static char stack_peek(const stack* s) {
-    assert(s->tos > 0);
-    return s->crates[s->tos - 1];
-}
-
-static char stack_pop(stack* s) {
-    assert(s->tos > 0);
-    return s->crates[(s->tos--) - 1];
-}
-
-static void stack_push(stack* s, char c) {
-    assert(s->tos < STACK_MAX);
-    s->crates[s->tos++] = c;
-}
-
-static void stack_reverse(stack* s) {
-    if (s->tos < 2) {
-        return;
-    }
-    int head = 0;
-    int tail = s->tos - 1;
-    while (head < tail) {
-        char tmp = s->crates[head];
-        s->crates[head] = s->crates[tail];
-        s->crates[tail] = tmp;
-        head += 1;
-        tail -= 1;
-    }
-}
 
 static void
 readInput(FILE* fp, void (*handler)(const cmd*, void*), void* userData) {
