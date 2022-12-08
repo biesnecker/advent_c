@@ -39,7 +39,7 @@
         int head = 0;                                                          \
         int tail = s->tos - 1;                                                 \
         while (head < tail) {                                                  \
-            char tmp = s->elems[head];                                         \
+            elem_type tmp = s->elems[head];                                    \
             s->elems[head] = s->elems[tail];                                   \
             s->elems[tail] = tmp;                                              \
             head += 1;                                                         \
