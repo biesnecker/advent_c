@@ -14,7 +14,7 @@ static int delta(int a) {
     return a == 0 ? 0 : a > 0 ? 1 : -1;
 }
 
-static void update_tail(const coord* head, coord* tail) {
+static void updateTail(const coord* head, coord* tail) {
     if (coord_adjacent(head, tail)) {
         return;
     }
@@ -86,7 +86,7 @@ static void readInput(FILE* fp, state* s) {
             s->knots[0].x += dx;
             s->knots[0].y += dy;
             for (int j = 1; j < s->knotCount; ++j) {
-                update_tail(&s->knots[j - 1], &s->knots[j]);
+                updateTail(&s->knots[j - 1], &s->knots[j]);
             }
             updateSeen(s);
         }
