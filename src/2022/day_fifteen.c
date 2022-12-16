@@ -82,5 +82,41 @@ FUNCTION_DEFN_FOR_YDS(2022, fifteen, a) {
 }
 
 FUNCTION_DEFN_FOR_YDS(2022, fifteen, b) {
-    UNUSED_ARG(fp);
+    sensor sensors[32] = {0};
+    const int nSensors = readInput(fp, sensors);
+
+    for (int y = 0; y <= 4000000; ++y) {
+        int nRanges = 0;
+        range ranges[32] = {0};
+
+        for (int i = 0; i < nSensors; ++i) {
+            range r = coveredRangeAtRow(&sensors[i], y);
+            if (r.begin != INT_MIN) {
+                ranges[nRanges++] = r;
+            }
+        }
+
+        qsort(ranges, nRanges, sizeof(range), cmp);
+
+        range_stack s = {0};
+
+        for (int i = 0; i < nRanges; ++i) {
+            if (range_stack_empty(&s)) {
+                range_stack_push(&s, ranges[i]);
+            } else {
+                range* r = range_stack_peek_ref(&s);
+                if (ranges[i].begin <= r->end) {
+                    r->end = ranges[i].end > r->end ? ranges[i].end : r->end;
+                } else {
+                    range_stack_push(&s, ranges[i]);
+                }
+            }
+        }
+        if (range_stack_size(&s) == 2) {
+            int64_t total = (int64_t)y;
+            total += (int64_t)(s.elems[0].end + 1) * 4000000LL;
+            printf("%lld\n", total);
+            break;
+        }
+    }
 }
