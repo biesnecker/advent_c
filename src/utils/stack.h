@@ -14,6 +14,9 @@
 #define __STACK_EMPTY(name)                                                    \
     static bool name##_empty(const name* s) { return s->tos == 0; }
 
+#define __STACK_SIZE(name)                                                     \
+    static int name##_size(const name* s) { return s->tos; }
+
 #define __STACK_POP(name, elem_type)                                           \
     static elem_type name##_pop(name* s) {                                     \
         assert(s->tos > 0);                                                    \
@@ -30,6 +33,12 @@
     static elem_type name##_peek(const name* s) {                              \
         assert(s->tos > 0);                                                    \
         return s->elems[s->tos - 1];                                           \
+    }
+
+#define __STACK_PEEK_REF(name, elem_type)                                      \
+    static elem_type* name##_peek_ref(name* s) {                               \
+        assert(s->tos > 0);                                                    \
+        return &s->elems[s->tos - 1];                                          \
     }
 
 #define __STACK_REVERSE(name, elem_type)                                       \
@@ -50,7 +59,9 @@
 #define STACK_DEFINE(name, elem_type, capacity)                                \
     __STACK_STRUCT(name, elem_type, capacity);                                 \
     __STACK_EMPTY(name);                                                       \
+    __STACK_SIZE(name);                                                        \
     __STACK_POP(name, elem_type);                                              \
     __STACK_PUSH(name, elem_type);                                             \
     __STACK_PEEK(name, elem_type);                                             \
+    __STACK_PEEK_REF(name, elem_type);                                         \
     __STACK_REVERSE(name, elem_type)
