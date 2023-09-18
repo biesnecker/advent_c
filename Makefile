@@ -1,17 +1,12 @@
 CC=clang
-CXX=clang++
 ERRFLAGS=-Werror -Wall -Wextra -Wstrict-prototypes -Wno-unused-function
 CFLAGS=-std=c17 -O2
-CXXFLAGS=-std=c++17 -O2
 BINARY_NAME=advent_c
 
 MAIN = src/main.o
 
 %.o: %.c
 	$(CC) -c -o $@ $< $(CFLAGS) $(ERRFLAGS)
-
-%.o: %.cpp
-	$(CXX) -c -o $@ $< $(CXXFLAGS) $(ERRFLAGS)
 
 LIBS = \
 	utils.a \
