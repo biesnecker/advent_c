@@ -14,7 +14,8 @@ LIBS = \
 	lib2016.a \
 	lib2018.a \
 	lib2021.a \
-	lib2022.a
+	lib2022.a \
+	lib2023.a
 
 $(BINARY_NAME): $(MAIN) $(LIBS)
 	$(CC) -o $@ $^ $(CFLAGS) $(ERRFLAGS)
@@ -35,6 +36,9 @@ lib2021.a: $(patsubst %.c, %.o, $(wildcard src/2021/*.c))
 	ar -rv $@ $^
 
 lib2022.a: $(patsubst %.c, %.o, $(wildcard src/2022/*.c))
+	ar -rv $@ $^
+
+lib2023.a: $(patsubst %.c, %.o, $(wildcard src/2023/*.c))
 	ar -rv $@ $^
 
 .PHONY: clean
