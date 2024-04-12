@@ -61,6 +61,7 @@ FUNCTION_DECL_FOR_YD(2022, nineteen);
 FUNCTION_DECL_FOR_YD(2023, one);
 FUNCTION_DECL_FOR_YD(2023, two);
 FUNCTION_DECL_FOR_YD(2023, three);
+FUNCTION_DECL_FOR_YD(2023, four);
 
 static solution solutions[] = {
     // 2015
@@ -112,6 +113,7 @@ static solution solutions[] = {
     SOLUTIONS_FOR_YD(2023, one),
     SOLUTIONS_FOR_YD(2023, two),
     SOLUTIONS_FOR_YD(2023, three),
+    SOLUTIONS_FOR_YD(2023, four),
 };
 
 static const int n_solutions = ARRAY_LEN(solutions);
