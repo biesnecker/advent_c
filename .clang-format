@@ -8,6 +8,7 @@ BinPackParameters: false
 AllowAllParametersOfDeclarationOnNextLine: false
 AllowShortLoopsOnASingleLine: false
 AllowShortFunctionsOnASingleLine: false
+AlignAfterOpenBracket: BlockIndent
 IncludeBlocks: Regroup
 IncludeCategories:
   - Regex: '"_?_?W.*\.h(pp)?"'
@@ -16,7 +17,7 @@ IncludeCategories:
     Priority: 3
   - Regex: '^<.*\.h(pp)?>'
     Priority: 1
-  - Regex: '^<.*'
+  - Regex: "^<.*"
     Priority: 2
-  - Regex: '.*'
+  - Regex: ".*"
     Priority: 13

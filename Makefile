@@ -1,12 +1,17 @@
 CC=clang
 ERRFLAGS=-Werror -Wall -Wextra -Wstrict-prototypes -Wno-unused-function
 CFLAGS=-std=c17 -O2
+DEBUGFLAGS=-g -O0
 BINARY_NAME=advent_c
 
 MAIN = src/main.o
 
 %.o: %.c
 	$(CC) -c -o $@ $< $(CFLAGS) $(ERRFLAGS)
+
+ifeq ($(MAKECMDGOALS),debug)
+  CFLAGS += $(DEBUGFLAGS)
+endif
 
 LIBS = \
 	utils.a \
@@ -19,6 +24,8 @@ LIBS = \
 
 $(BINARY_NAME): $(MAIN) $(LIBS)
 	$(CC) -o $@ $^ $(CFLAGS) $(ERRFLAGS)
+
+debug: $(BINARY_NAME)
 
 utils.a: $(patsubst %.c, %.o, $(wildcard src/utils/*.c))
 	ar -rv $@ $^
